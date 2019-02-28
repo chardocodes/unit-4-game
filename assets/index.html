@@ -7,95 +7,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+
+
     <title>Crystal Collector</title>
 </head>
 
 <body>
-    <!-- container for the game om the webpage -->
-    <div class="Container">
-        <div id="title_">
-            <div class="panel panel-body">
 
-                <h1>CrystalsCollector!</h1>
-            </div>
+    <div class="container">
+
+
+
+        <h2 id="inSquare">Crystal Collector Game</h2>
+        <h2>Collect <span id="random-number"></span> Crystals</h2>
+        <h2> You have <span id="current-total"></span> Crystals</h2>
+
+
+
+
+        <div id="button-container">
         </div>
 
-        <br>
 
-        <div class="container">
-            <div id="text_">
-                <div class="panel panel-body">
-                    You will be given a random number at the start of the game.
-                    </p>
-
-                    <br>
-                    <p>
-                        There are four crystals below. By clicking on a crystal you will add a specific amount of points
-                        to your
-                        total score.
-                    </p>
-                    <br>
-                    <p>
-                        You win the game by matching your total score to random number, you lose the game if your total
-                        score
-                        goes
-                        above the random number.
-                    </p>
-                    <br>
-
-                    <p>
-                        The value of each crystal is hidden from you until you click on it.
-                    </p>
-                    <br>
-                    <p>
-                        Each time when the game starts, the game will change the value of each crystal.
-                    </p>
-                </div>
-
-            </div>
+        <div>
+            <h2 id="victories">Wins:
+            </h2>
+            <h2 id="defeats">Losses: </h2>
         </div>
-
-        <div class="container">
-            <!-- random number -->
-            <div id="random_number">
-                <div class="panel panel-default">
-                    <div class="panel-body"> "39" </div>
-                </div>
-
-                <div class="container">
-                    <div id="tally_">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p>Wins: </p>
-                                <br>
-                                <p>Loses:</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="container">
-                    <!-- <div id="ruby", img src:="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwitvsml19PgAhVmlFQKHdnSDW8QjRx6BAgBEAU&url=https%3A%2F%2Fdumielauxepices.net%2Fruby-clipart%2Fruby-clipart-works&psig=AOvVaw0uaCEz06zAuFkc9akLUCWt&ust=1551074052239837"
-        ></div> -->
-                    <div id="crystals_">
-                    </div>
+    </div>
+    
 
 
-                </div>
-                <div class="container">
-                    <div id="scoreIs_">
-                        <p>Your total score is:</p>
-                    </div>
-                </div>
 
-                <div class="container">
 
-                    <div id="total score"></div>
-                </div>
 
-            </div>
-            <script src="../assets/javascript/game.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- JQuery  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+        </script>
+    <!-- Javascript -->
+    <script type="text/javascript" ; src="../assets/javascript/game.js"></script>
+
 </body>
 
 </html>

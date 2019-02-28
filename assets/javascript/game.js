@@ -1,44 +1,74 @@
-// arrays and variables for holding data
 
-var startOfGame ="getCrystal";
 
-// The player will have to guess the answer, just like in Word Guess. This time, though, the player will guess with numbers instead of letters. 
 
-var playerGuess ="clickEvent";
+//declaring object as a game. setting properties. 
+var game = {
+    randomNumber: 0,
+    totalNumber: 0,
+    start: function () {
+        //generating a random number.
+        this.randomNumber = this.generateRandomNumber(19, 120);
 
-// 3. Here's how the app works:
-//    * There will be four crystals displayed as buttons on the page.
+        //displaying random number and current totals.
+        $("#random-number").text(this.randomNumber);
+        $("#current-total").text(this.totalNumber);
 
-var crystalOne ="randomNumber1";
-var crystalTwo ="randomNumber2";
-var crystalThree ="randomNumber3";
-var crystalFour ="randomNumber4";
+        // making my crystal buttons
+        for (var i = 0; i < 4; i++) {
+            var btn = $("<button>");
+            btn.addClass("btn btn-secondary");
+            btn.val(this.generateRandomNumber(1, 12));
 
-//    * The player will be shown a random number at the start of the game.
+            btn.text("gem");
+            $("#button-container").append(btn);
 
-var randomNumber="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]";
+        }
+    },
 
-//    * When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
-var playerClick="addAmount"
-//      * Your game will hide this amount until the player clicks a crystal.
-var hiddenNumber="[]";
-var crystalValue="++";
+    reset: function () {
+        $("#button-container").empty();
+        this.totalNumber = 0;
+        this.start();
 
-//      * When they do click one, update the player's score counter.
-var updateScore="scoreCounter";
+    },
 
-//    * The player wins if their total score matches the random number from the beginning of the game.
-var wins="matchingNumber";
-//    * The player loses if their score goes above the random number.
-var lose="scoreAbove";
-//    * The game restarts whenever the player wins or loses.
-var restartGame="winOrLose";
-//      * When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. Of course, the user's score (and score counter) will reset to zero.
+    generateRandomNumber: function (min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
 
-//    * The app should show the number of games the player wins and loses. To that end, do not refresh the page as a means to restart the game.
+    }
+};
+//--------------------------------click to start
+game.start();
+//
+// I don't understand why my buttons don't work. 
+//I want my buttons, when clicked to add to the tally of the current total. I am feeling like I am lost in space. 
 
-// ##### Option 1 Game design notes
 
-// * The random number shown at the start of the game should be between 19 - 120.
 
-// * Each crystal should have a random hidden value between 1 - 12.
+
+
+$(".random-btn").on("click", function () {
+    var btnValue = parseInt($(this).val());
+    totalNumber += btnValue;
+    console.log(btnValue);
+    $("#total-number").text(totalNumber);
+    //console.log(btnValue);
+    // if the totalNumber matches the randomNumber 
+    if (totalNumber === randomNumber) {
+        wins++;
+        $("#victories").html(Wins);
+
+        // we win 
+
+
+        // resets the game
+        game.reset();
+    } else if (game.totalNumber > game.randomNumber) {
+        losses--;
+        $("#defeats").html(Losses)
+
+        // resets the game
+        game.reset();
+    }
+});
+
